@@ -1,0 +1,46 @@
+.clr{
+  clear:both;
+}
+.clearfix:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.conteiner {
+  max-width: 1080px;
+  min-height: 560px;
+  padding-top: 20px;
+  margin: 0 auto;
+  background-color: gainsboro;
+}
+.img-container {
+  background-size: cover;
+  width: 650px;
+  height: 450px;
+  background-image: url("../../assets/images/ISS_STS.jpg");
+  overflow: hidden;
+  text-align: center;
+}
+.station {
+  padding-left: 20px;
+  width: 70%;
+  height: auto;
+  float: left;
+  background-color: gainsboro;
+}
+.cities {
+  width: 30%;
+  float: right;
+  padding: 30px 20px 0 20px;
+  background-color: gainsboro;
+}
+.main-city table {
+  text-align: center;
+}
+.main-city th {
+  border: solid 1px #000;
+}
+.main-city td {
+  min-width: 220px;
+  border: solid 1px #000;
+}

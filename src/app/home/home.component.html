@@ -1,0 +1,51 @@
+<div class="conteiner">
+  <article class="station clearfix">
+    <div *ngIf="chooseCity == 3">
+      <header>
+        <h4>When can I see the ISS (International Space Station)?</h4>
+      </header>
+      <div class="img-container"></div>
+    </div>
+
+    <div *ngIf="chooseCity != 3">
+      <header>
+        <h4>The next 10 passes of ISS other over {{ cities[chooseCity].name }}</h4>
+      </header>
+      <div *ngIf="!isLoaded">Lading...</div>
+      <div class="main-city" *ngIf="isLoaded">
+        <table>
+          <tr>
+          <th>Rise</th>
+          <th>Duration</th>
+          <th>Day/Night</th>
+          </tr>
+          <tr *ngFor="let rec of records">
+            <td>{{ rec.rise | amDateFormat: 'YYYY MMM DD HH:mm:ss'}}</td>
+            <td>{{ rec.duration }}</td>
+            <td *ngIf="rec.dayOrNight"><i class="fas fa-sun"></i></td>
+            <td *ngIf="!rec.dayOrNight"><i class="far fa-moon"></i></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </article>
+  <article class="cities clearfix">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Options</label>
+      </div>
+      <select
+        class="custom-select"
+        id="inputGroupSelect01"
+        [(ngModel)]="chooseCity"
+        (change)="selectCity()"
+      >
+        <option selected value=3>Select a city</option>
+        <option value=0>Tel Aviv</option>
+        <option value=1>London</option>
+        <option value=2>New York city</option>
+      </select>
+    </div>
+  </article>
+</div>
