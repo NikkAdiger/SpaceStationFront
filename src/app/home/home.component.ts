@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   chooseCity = 3;
   isLoaded = false;
-  records: DataISS[] = []
+  records: DataISS[] = [];
   amount = 10;
   days: Days[] = [];
 
@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
 
   selectCity() {
 
-    if (this.chooseCity != 3) {
+    if (this.chooseCity !== 3) {
       this.isLoaded = false;
       this.records = [];
       this.days = [];
@@ -79,10 +79,8 @@ export class HomeComponent implements OnInit {
         if (dayDays.day === dayRecord) {
           const momentStation = (el.rise).valueOf();
           if (momentStation > dayDays.timeIn && momentStation < dayDays.timeOut) {
-            console.log('TRUE');
             el.dayOrNight = true;
           } else {
-            console.log('FALSE');
             el.dayOrNight = false;
           }
         }
@@ -92,10 +90,10 @@ export class HomeComponent implements OnInit {
 
   private durationConverter(totalSeconds): string {
 
-    const sec_num = parseInt(totalSeconds, 10)
-    const hours = Math.floor(sec_num / 3600) % 24
-    const minutes = Math.floor(sec_num / 60) % 60
-    const seconds = sec_num % 60
+    const sec_num = parseInt(totalSeconds, 10);
+    const hours = Math.floor(sec_num / 3600) % 24;
+    const minutes = Math.floor(sec_num / 60) % 60;
+    const seconds = sec_num % 60;
     return [hours, minutes, seconds]
       .map(v => v < 10 ? '0' + v : v)
       .join(':');
